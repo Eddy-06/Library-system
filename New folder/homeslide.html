@@ -1,0 +1,78 @@
+<div class="home-section" id="home">
+    <div class="overlay">
+        <div class="home-content">
+            <h1>Welcome to Our Library</h1>
+            <p>
+                A place where knowledge meets curiosity. Explore thousands of books,
+                digital resources, and a peaceful environment designed for learning
+                and discovery.
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+.home-section {
+    height: 100vh;
+    background: url('library1.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    transition: background-image 1s ease-in-out;
+}
+
+/* Dark overlay */
+.overlay {
+    background: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.home-content {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.home-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.home-content p {
+    font-size: 18px;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .home-content h1 {
+        font-size: 32px;
+    }
+}
+</style>
+
+<script>
+const images = [
+    "library1.jpg",
+    "library2.jpg",
+    "library3.jpg"
+];
+
+let index = 0;
+const home = document.getElementById("home");
+
+function changeBackground() {
+    index++;
+    if (index >= images.length) {
+        index = 0;
+    }
+    home.style.backgroundImage = "url('" + images[index] + "')";
+}
+
+// Change every 4 seconds
+setInterval(changeBackground, 4000);
+</script>

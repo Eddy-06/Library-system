@@ -1,0 +1,365 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(rgba(17,24,39,0.9), rgba(17,24,39,0.9)),
+                url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f");
+    background-size: cover;
+    color: #fff;
+}
+
+/* Layout */
+.layout {
+    display: flex;
+}
+
+.sidebar-space {
+    width: 260px; /* space for your sidebar */
+}
+.mini-sidebar {
+    width: 70px;
+    background: #19191a;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.mini-sidebar i {
+    color: #9ca3af;
+    font-size: 20px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.mini-sidebar i.active,
+.mini-sidebar i:hover {
+    color: #3b82f6;
+}
+
+/* Main Sidebar */
+.sidebar {
+    width: 260px;
+    background: #343436;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+}
+
+.sidebar h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu {
+    margin-top: 20px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 10px;
+    color: #d1d5db;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    color: white;
+}
+
+.submenu {
+    display: none;
+    padding-left: 15px;
+}
+
+.submenu a {
+    display: block;
+    padding: 6px 0;
+    color: #9ca3af;
+    text-decoration: none;
+}
+
+.submenu a:hover {
+    color: white;
+}
+
+.submenu.show {
+    display: block;
+}
+
+hr {
+    border: 0.5px solid #374151;
+    margin: 15px 0;
+}
+
+.main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header i {
+    font-size: 20px;
+    cursor: pointer;
+    color: #9ca3af;
+}
+
+.header i:hover {
+    color: #3b82f6;
+}
+
+/* Search Bar */
+.search-bar {
+    display: none;
+    margin: 15px 0;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+/* Categories */
+.categories {
+    margin: 15px 0;
+}
+
+.categories select {
+    padding: 10px;
+    border-radius: 8px;
+    background: #1f2937;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Books Grid */
+.books {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Book Card */
+.book {
+    background: #1f2937;
+    width: calc(20% - 12px);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.book:hover {
+    transform: translateY(-5px);
+    transform: scale(1.1);
+    transition: ease-in-out 0.3s;
+}
+
+.book img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.book h4 {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.book button {
+    background: #ff7236;
+    border: none;
+    padding: 8px;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.book button:hover {
+    background: linear-gradient(to right, #923bf6, #db25eb);
+}
+.book button a{
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Recommendations */
+.recommendations {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    margin-left: 25%;
+    width: 500px;
+}
+
+.recommendations .box {
+    flex: 1;
+    background: #1f2937;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recommendations .box:hover {
+     background: linear-gradient(to top, #ff7236, #aa4a21);
+     transform: scale(0.95);
+     transition: ease-in-out 0.3s;
+}
+
+.recommendations p {
+    margin: 5px 0;
+    color: #d1d5db;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+       .sidebar-space {
+    width: 200px; 
+}
+.book h4 {
+    font-size: 10px;
+    margin: 10px 0;
+}
+.book button {
+    background: #ff7236;
+    border: none;
+    padding: 7px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+.book a {
+    font-size: 10px;
+}
+.recommendations {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    margin-left: 25%;
+    width: 350px;
+}
+.recommendations .box {
+    flex: 2;
+    background: #1f2937;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+}
+
+
+@media (max-width: 768px) {
+    .sidebar-space {
+    width: 150px; 
+}
+.book h4 {
+    font-size: 8px;
+    margin: 8px 0;
+}
+.book button {
+    background: #ff7236;
+    border: none;
+    padding: 5px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+.book a {
+    font-size: 8px;
+}
+.recommendations {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-left: 25%;
+    width: 250px;
+}
+.recommendations .box {
+    flex: 3;
+    background: #1f2937;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+}
+
+@media (max-width: 480px) {
+    .sidebar-space {
+    width: 100px; 
+}
+.book h4 {
+    font-size: 5px;
+    margin: 5px 0;
+}
+.book button {
+    background: #ff7236;
+    border: none;
+    padding: 3px;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 100%;
+}
+.book a {
+    font-size: 3px;
+}
+.recommendations {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+    margin-left: 25%;
+    width: 200px;
+}
+.recommendations .box {
+    flex: 4;
+    background: #1f2937;
+    padding: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+}

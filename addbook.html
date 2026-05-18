@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIBRARY/ADD BOOK</title>
+
+    <link href="logo.png" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:linear-gradient(rgba(17,24,39,0.7), rgba(17,24,39,0.7)),
+                url("images/pexels-technobulka-2908984.jpg");
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.form-container {
+    background: #353535;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
+}
+.form-container:hover{
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    background: #353535;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    color: #ff7236;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+h3 {
+    font-size: 1.1rem;
+    color: #ff7236;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    color: #ff7236;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input {
+    background-color: #919090;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+.buttons   {
+    display: flex;
+    gap: 50px;
+}
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+::placeholder {
+    color: #353535;
+}
+
+button {
+    width: 200px;
+    padding: 12px;
+    background-color: #ff7236;
+    color: whitesmoke;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: white;
+    color: #333;
+}
+button a:hover {
+    color: #333;
+}
+#message {
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.hidden {
+    display: none;
+}
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>ADD BOOK  <i class="fa-brands fa-leanpub" style="color: #d4edda;"></i></h2>
+    <form id="libraryForm">
+        <div class="section">
+            <h3>BOOK DETAILS</h3>
+            <div class="input-group">
+                <div class="categories">
+        <select id="categorySelect" style="background-color: #919090;">
+            <option value="all">All Categories</option>
+            <option value="EEE">EEE</option>
+            <option value="civil engineering">Civil Engineering</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="novels">Novels</option>
+            <option value="ICT">ICT</option>
+        </select>
+        </div>
+                <label for="bookTitle">Book Title</label>
+                <input type="text" id="bookTitle" required placeholder="Title">
+            </div>
+            <div class="input-group">
+                <label for="author">Department</label>
+                <input type="text" id="author" placeholder="Department">
+                 <label for="Option">Option</label>
+                <input type="text" id="Option" placeholder="Option">
+            </div>
+            <div class="input-group">
+                <label for="requestDate">Date</label>
+                <input type="date" id="requestDate" required>
+            </div>
+        </div>
+       <div class="buttons">
+        <button type="submit" id="submitBtn">Add book</button>
+
+        <button type="reset" id="resetBtn">Clear</button>
+
+        <button><a href="Admin.html">Back</a></button>
+       </div>
+    </form>
+    <div id="message" class="hidden"></div>
+</div>
+
+<script>
+    document.getElementById('libraryForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevents the form from refreshing the page
+
+    // Capture values
+    const bookTitle = document.getElementById('bookTitle').value;
+    const department = document.getElementById('author').value;
+    const option = document.getElementById('Option').value;
+    const requestDate = document.getElementById('requestDate').value;
+    const messageDiv = document.getElementById('message');
+
+    // Simulate form processing
+    messageDiv.textContent = `Thank you! The book "${bookTitle}" has been added successfully.`;
+    messageDiv.className = "success"; // Apply success styling
+    
+    // Optional: Reset form after 3 seconds
+    setTimeout(() => {
+        this.reset();
+        messageDiv.classList.add('hidden');
+    }, 8000);
+});
+</script>
+</body>
+</html>

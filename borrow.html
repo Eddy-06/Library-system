@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIBRARY/BORROW</title>
+
+    <link href="logo.png" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:linear-gradient(rgba(17,24,39,0.7), rgba(17,24,39,0.7)),
+                url("images/slide8.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.form-container {
+    background: #7e603a;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
+}
+.form-container:hover{
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    background: #b18d5f;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input {
+    background-color: #d4edda;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.buttons   {
+    display: flex;
+    gap: 50px;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+::placeholder {
+    color: #333;
+}
+
+button {
+    width: 200px;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #ff7236;
+}
+
+#message {
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.hidden {
+    display: none;
+}
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>BORROW BOOK <i class="fa-brands fa-leanpub" style="color: #ff7236;"></i></h2>
+    <form id="libraryForm">
+        <div class="section">
+            <h3>DETAILS</h3>
+            <div class="input-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" required placeholder="Enter names">
+            </div>
+            <div class="input-group">
+                <label for="studentID">Reg number</label>
+                <input type="text" id="studentID"  placeholder="RP...." minlength="11" maxlength="11">
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                 <input type="email" id="email" required placeholder="email@.com"><br><br>
+
+                <label for="studentID">Phone number</label>
+                 <input  id="phone-number" required placeholder="07..." minlength="10" maxlength="10">
+               
+            </div>
+                <div class="tiles">
+                   <label>Select Your Title</label>
+                <select id="categorySelect" style="background-color: #7e603a;">
+                    <option value="degree">Title</option>
+                    <option value="degree">Student</option>
+                    <option value="degree">Staff</option>
+                </select>
+                </div>
+        </div>
+
+        <div class="section">
+            <h3>BOOK</h3>
+            <div class="input-group">
+                <label for="bookTitle">Book Title</label>
+                <input type="text" id="bookTitle" required placeholder="Title">
+            </div>
+            <div class="input-group">
+                <label for="author">Department</label>
+                <input type="text" id="author" placeholder="Department">
+                 <label for="Option">Option</label>
+                <input type="text" id="author" placeholder="Option">
+            </div>
+            <div class="input-group">
+                <label for="requestDate">Date</label>
+                <input type="date" id="requestDate" required>
+            </div>
+        </div>
+       <div class="buttons">
+        <button type="submit" id="submitBtn">Submit Request</button>
+
+        <button type="reset" id="resetBtn"><a href="form.html">Clear</a></button>
+
+        <button><a href="viewbooks.html">Back</a></button>
+       </div>
+    </form>
+    <div id="message" class="hidden"></div>
+</div>
+
+<script>
+    document.getElementById('libraryForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevents the form from refreshing the page
+
+    // Capture values
+    const studentName = document.getElementById('fullName').value;
+    const bookName = document.getElementById('bookTitle').value;
+    const messageDiv = document.getElementById('message');
+
+    // Simulate form processing
+    messageDiv.textContent = `Thank you, ${studentName}! Your request for "${bookName}" has been submitted successfully.`;
+    messageDiv.className = "success"; // Apply success styling
+    
+    // Optional: Reset form after 3 seconds
+    setTimeout(() => {
+        this.reset();
+        messageDiv.classList.add('hidden');
+    }, 7000);
+});
+</script>
+</body>
+</html>
